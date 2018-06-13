@@ -1,0 +1,30 @@
+import '@babel/polyfill'
+import withRouter from 'umi/withRouter'
+import wx from 'weixin-js-sdk';
+import Styles from './app.less'
+import  {Common}  from '../utils/common'
+import VConsole from 'vconsole/dist/vconsole.min.js' //import vconsole
+
+let vConsole = new VConsole() // 初始化
+
+if(Common.isWX()){
+    /*wx.config({
+        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: '111', // 必填，公众号的唯一标识
+        timestamp: '111', // 必填，生成签名的时间戳
+        nonceStr: '11', // 必填，生成签名的随机串
+        signature: '111',// 必填，签名，见附录1
+        jsApiList: [
+            'onMenuShareAppMessage',
+            'onMenuShareTimeline'
+        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    })*/
+}
+export default withRouter((props) => {
+    return (
+
+        <div style={{"height":"100%"}}>
+                   {props.children}
+        </div>
+    )
+})

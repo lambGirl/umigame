@@ -1,0 +1,66 @@
+@base: 0.0416;
+body,html{
+  overflow: hidden;
+}
+.main-content{
+  height: 100%;
+}
+.fullModal{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, .8);
+  z-index: 1;
+  .close{
+    position:absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    width: 30px;
+    height: 16px;
+    z-index: 888;
+    line-height: 16px;
+  }
+  .centerModal{
+    position: absolute;
+    width: 82%;
+    max-height: 440px;
+    height: 61%;
+    margin: 0 auto;
+    top: 12%;
+    left: 9%;
+    background: rgba(255,255,255,1);
+    border-radius: 4px;
+    color: #f93434;
+    font-family: initial;
+  /*  font-weight: 800;*/
+    &>:first-child{
+
+      width: 73%;
+      height: 50%;
+      max-width: 200px;
+      max-height: 200px;
+      margin: 25px auto;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .zw{
+      width: 29%;
+      height: 16%;
+      max-width: 70px;
+      max-height: 70px;
+      margin: 20px auto;
+      background: url("../assets/img/zw.png") no-repeat;
+      background-size: 100% 100%;
+    }
+    text-align: center;
+    color:#d8a0b3;
+    font-size: 18px;
+  }
+}
+
+@import "../pages/index.less";

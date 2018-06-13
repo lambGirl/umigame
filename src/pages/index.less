@@ -1,0 +1,457 @@
+@import "../layouts/app";
+.rotate_3{
+  transform: rotate(-3deg);
+}
+@media (min-width:0px) and (max-width: 320px) {
+  .chooseSubject {
+    .title > .line {
+      width: 47% !important;
+    }
+  }
+  .resultContainer{
+    &>div{
+     .resultContent{
+       >:nth-child(2){
+         .scores{
+           >:nth-child(2){
+             span{
+               font-size: @base*70rem !important;
+             }
+           }
+         }
+       }
+     }
+    }
+  }
+}
+
+@media (width: 414px) {
+  .chooseSubject {
+    .title > .line {
+      width: 54% !important;
+    }
+  }
+}
+
+
+/**
+  开始答题
+ */
+.startPageContainer{
+  width: 100%;
+  height: 100%;
+  background: url("../assets/img/indexBg.png") no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  position: relative;
+  .startQuestionBtn{
+    width: 56%;
+    height: 13%;
+    background: url("../assets/img/startquestion.png");
+    background-size: 100% 100%;
+    position: absolute;
+    bottom: 14%;
+    left: 50%;
+    margin-left: -25%;
+  }
+
+}
+
+
+/**
+  选择文理科目
+ */
+.chooseSubject{
+  height: 100%;
+  width: 100%;
+  background: url("../assets/img/deepBj.png") no-repeat;
+  background-size: 100% 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  &>div{
+    width: 100%;
+    height: 100%;
+    position: relative;
+   /* top: 1%;*/
+    max-height: 56rem;
+    background: url("../assets/img/bj.png") no-repeat;
+    background-size: 100% 100%;
+    .container_ChooseSubject {
+      position: absolute;
+      height:80%;
+      top: 12%;
+      bottom: 4%;
+      width: 100%;
+      .testPaper {
+        width: 100%;
+        margin-top: 5px;
+        height: 17%;
+        max-height: @base*167rem;
+        &::after {
+          margin-left: 4.5%;
+          content: '';
+          display: block;
+          height:100%;
+          width: 43%;
+          max-width: @base*289rem;
+          background: url("../assets/img/encryption.png") no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+      .wkPager {
+        width: 100%;
+        margin-top: 1%;
+        height: 18%;
+        margin-bottom: 5px;
+        max-height: @base*167rem;
+        &::after {
+          margin-left: 4.5%;
+          content: '';
+          display: block;
+          width: @base*289rem;
+          height: 100%;
+          background: url("../assets/img/wkPage.png") no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+      .lkPager {
+        width: 100%;
+        margin-top: 1%;
+        height: 18%;
+        margin-bottom: 5px;
+        max-height: @base*167rem;
+        &::after {
+          margin-left: 4.5%;
+          content: '';
+          display: block;
+          width: @base*289rem;
+
+          height: 100%;
+          background: url("../assets/img/lkPage.png") no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+
+      .title {
+         display: flex;
+         justify-content: left;
+        width: 100%;
+        padding-left: 7%;
+        margin-top: 5px;
+        .name {
+          display: inline-block;
+          width: @base*206rem;
+          height: @base*62rem;
+          background: url("../assets/img/brown.png") no-repeat;
+          background-size: 100% 100%;
+          color: #fff;
+          font-size: @base*36rem;
+          line-height: @base*66rem;
+          margin-right: 2%;
+          text-align: center;
+        }
+        .line {
+          display: inline-block;
+          width: 51%;
+          height: @base*31rem;
+          background: url("../assets/img/line.png") no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+      & > .remindTitle {
+        width: 100%;
+        padding-top: 4%;
+        padding-left: 12%;
+        color: #000;
+        font-size: @base*48rem;
+        line-height: @base*79rem;
+      }
+      & > .chooseSubjectBtn{
+        /*  padding-top:@base*190rem;*/
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        margin-left: -@base*189.5rem;
+        > div {
+          width: @base*379rem;
+          height: @base*107rem;
+          color: #FDE3B5;
+          font-size: @base*64rem;
+          margin: 0 auto;
+        }
+        > :first-child {
+          margin-bottom: @base*65rem;
+        }
+        > :nth-child(2) > div {
+          width: 100%;
+          height: 100%;
+          margin-left: .7rem;
+        }
+        > .wk {
+          background: url("../assets/img/wk.png") no-repeat;
+          background-size: 100% 100%;
+        }
+        > .wk_active {
+          background: url("../assets/img/wk_checked.png") no-repeat;
+          background-size: 100% 100%;
+        }
+        > :nth-child(2) > .lk {
+          background: url("../assets/img/lk.png") no-repeat;
+          background-size: 100% 100%;
+        }
+        > :nth-child(2) > .lk_active {
+          background: url("../assets/img/lk_checked.png") no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+
+      /**
+        显示题目并且选择答案的列表
+       */
+      .subjectList{
+        height: 50%;
+        overflow: auto;
+        .subjectTitle{
+          padding-left: @base*85rem;
+          width: 73%;
+          color: #000;
+          font-size: @base*36rem;
+          padding-bottom: 2%;
+          padding-top: 2%;
+        }
+        ul{
+          list-style: none;
+          padding-left: @base*85rem;
+          font-size: @base*36rem;
+          color: #000;
+          width: 73%;
+          margin:0;
+          li{
+            margin-bottom: 4%;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            >:first-child{
+              width: @base*56rem;
+              height: @base*56rem;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              &::before{
+                content: "";
+                display: block;
+                width: @base*40rem;
+                height: @base*40rem;
+                background: url("../assets/img/ans.png") no-repeat;
+                background-size: 100%;
+              }
+            }
+          }
+          li.active{
+            >:first-child{
+              width: @base*56rem;
+              height: @base*56rem;
+              background: url("../assets/img/ans_checked.png") no-repeat;
+              background-size: 100%;
+              &::before{
+                content: "";
+                display: none;
+              }
+            }
+          }
+          &>:last-child{
+            margin-bottom: 0;
+          }
+        }
+
+      }
+
+      >.nextQuestion{
+        position:absolute;
+        bottom: 6%;
+        width: @base*379rem;
+        height: 5rem;
+        background: url("../assets/img/next.png")no-repeat;
+        background-size: 100%;
+        margin: 0 auto;
+        left: 50%;
+        margin-left: -@base*160.5rem;
+      }
+      >.nextQuestion:active{
+        background: url("../assets/img/next_active.png") no-repeat;
+        background-size: 100%;
+      }
+    }
+
+  }
+
+}
+
+/**
+   结果页面
+ */
+.resultContainer{
+  width: 100%;
+  height: 100%;
+  position: relative;
+/*  top: 1%;*/
+  /*max-height: 56rem;*/
+  background: url("../assets/img/deepBj.png") no-repeat;
+  background-size: 100% 100%;
+  &>div{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 1%;
+    max-height: 56rem;
+    background: url("../assets/img/bj.png") no-repeat;
+    background-size: 100% 100%;
+
+    .resultContent{
+      position: absolute;
+      top: 10%;
+      bottom: 2%;
+      width: 100%;
+      margin-bottom: 17%;
+      height: 78%;
+      .resultTitle{
+        width: 73%;
+        height: 20%;
+        background: url("../assets/img/result.png") no-repeat;
+        background-size: 100% 100%;
+        margin-top: 2%;
+        margin-left: 10%;
+      }
+      >:nth-child(2){
+        padding: 0 15% 0 13%;
+        font-size: @base*46rem;
+        color: #000;
+        height: 40%;
+        .scores{
+          display: flex;
+          align-items: center;
+          height: 38%;
+          max-height: @base*150rem;
+          justify-content: space-between;
+          >:nth-child(2){
+            width: @base*180rem;
+            height: 100%;
+
+            background: url("../assets/img/number.png") no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            span{
+              position: absolute;
+              top: 14%;
+              right: 44%;
+              transform: rotate(-10deg);
+              color: #800000;
+              font-size: @base*88rem;
+            }
+          }
+        }
+        >:nth-child(2){
+          display: flex;
+          align-items: center;
+          height: 47%;
+          max-height:6.8rem;;
+          .pototypes{
+            width: 6.8rem;
+            height: 100%;
+            margin-left: 13%;
+          }
+          .pototypes_1{
+            background: url("../assets/img/1.png") no-repeat;
+            background-size: 100% 100%;
+          }
+          .pototypes_2{
+            background: url("../assets/img/2.png") no-repeat;
+            background-size: 100% 100%;
+          }
+          .pototypes_3{
+            background: url("../assets/img/3.png") no-repeat;
+            background-size: 100% 100%;
+          }
+          .pototypes_4{
+            background: url("../assets/img/4.png") no-repeat;
+            background-size: 100% 100%;
+          }
+          .pototypes_5{
+            background: url("../assets/img/5.png") no-repeat;
+            background-size: 100% 100%;
+          }
+          .pototypes_6{
+            background: url("../assets/img/6.png") no-repeat;
+            background-size: 100% 100%;
+          }
+        }
+      }
+      >:nth-child(3){
+        padding: 2% 15% 0 13%;
+        >:first-child{
+          color:#880000;
+          font-size: @base*54rem;
+          text-align: center;
+        }
+      }
+      >:nth-child(4){
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 10% 0 13%;
+        bottom: 0;
+        position: absolute;
+        height: 21%;
+        box-sizing: border-box;
+
+        >:first-child{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 67%;
+        /*  max-height: @base*100rem;*/
+          >:nth-child(1){
+            width: @base*228rem;
+            height: @base*78rem;
+            align-self: flex-end;
+          }
+
+          >:nth-child(1){
+            background: url("../assets/img/lookQuestion.png") no-repeat;
+            background-size: 100% 100%;
+          }
+
+          >:nth-child(1):active{
+            background: url("../assets/img/lookQuestion_checked.png") no-repeat;
+            background-size: 100% 100%;
+          }
+          >:nth-child(2){
+            width:28%;
+          //  width: @base*100rem;
+            height:100%;
+            max-width: 70px;
+            max-height: 70px;
+            img{
+              width: 100%;
+              height:100%;
+            }
+          }
+        }
+        >:last-child{
+          padding-top: 6%;
+          padding-bottom: 1%;
+         /* height: 54%;*/
+         /* line-height: 4;*/
+          width: 100%;
+          box-sizing: border-box;
+          text-align: center;
+          color: #880000;
+          transform: rotate(-4deg);
+        }
+
+
+
+      }
+
+    }
+  }
+}
